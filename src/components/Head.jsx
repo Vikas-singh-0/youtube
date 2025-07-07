@@ -1,10 +1,17 @@
+import {useDispatch, useSelector} from 'react-redux';
+import { toggleMenu } from '../utils/appSlice';
+// import { useState } from 'react';
 const Head = () => {
+  const dispatch = useDispatch();
+  const toggleMenuHandler = () => {
+    dispatch(toggleMenu());
+  }
   return (
     <>
       <div className="flex bg-[azure] content-center gap-4 justify-between items-center shadow-white shadow-sm p-1">
         <div className="flex items-center gap-4 p-2">
           <div className="flex items-center">
-            <img className="w-6 h-6 bg-white" src="/hmb.png" alt="user img" />
+            <img onClick={toggleMenuHandler} className="cursor-pointer w-6 h-6 bg-white" src="/hmb.png" alt="user img" />
           </div>
           <div>
             <img
