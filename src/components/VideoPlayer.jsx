@@ -1,7 +1,9 @@
 import { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-import { hideMenu, toggleMenu } from "../utils/appSlice";
+import { hideMenu } from "../utils/appSlice";
 import { useDispatch } from "react-redux";
+import CommentsSection from "./CommentsSection";
+import VideoPlayerWithLiveComments from "./VideoPlayerWithLiveComments";
 
 const VideoPlayer = () => {
   const [searchParams] = useSearchParams();
@@ -11,17 +13,10 @@ const VideoPlayer = () => {
     dispatch(hideMenu());
   }, [dispatch]);
   return (
-    <>
-      <iframe
-        width="930px"
-        height="530px"
-        src={`https://www.youtube.com/embed/${videoId}`}
-        title="YouTube video player"
-        frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-      ></iframe>
-    </>
+    <div className="flex flex-col items-center justify-center mt-4 bg-black gap-6">
+      <VideoPlayerWithLiveComments videoId={videoId} />
+      <CommentsSection videoId={videoId} />
+    </div>
   );
 };
 

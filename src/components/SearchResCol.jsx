@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function SearchResCol({ video }) {
   const navigate = useNavigate();
@@ -8,7 +8,7 @@ export default function SearchResCol({ video }) {
     navigate(`/videoPlayer?v=${videoId}`);
   };
   return (
-    <div
+    <Link to={`/videoPlayer?v=${video.id.videoId}`}
       key={video.id.videoId}
       className="flex p-2 border-b hover:bg-gray-200 cursor-pointer"
       onClick={() => {
@@ -27,6 +27,6 @@ export default function SearchResCol({ video }) {
           <p className="text-xs text-gray-500">{video.snippet.channelTitle}</p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

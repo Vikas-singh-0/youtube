@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { API_KEY } from "../utils/Constants";
 import SearchResults from "./SearchResults";
 
@@ -30,7 +30,9 @@ const Search = () => {
 
   return (
     <>
-      {(searchResults.length > 0) && showSuggestions && <SearchResults results={searchResults} />}
+      {searchResults.length > 0 && showSuggestions && (
+        <SearchResults results={searchResults} />
+      )}
       <div className="flex w-full max-w-xl">
         <input
           type="text"
@@ -40,7 +42,12 @@ const Search = () => {
           onFocus={() => setTimeout(() => setShowSuggestions(true), 100)}
           onBlur={() => setTimeout(() => setShowSuggestions(false), 100)}
         />
-        <div onClick={() => {console.log("Search text:", searchText);}} className="bg-gray-100 border border-gray-300 border-l-0 rounded-r-full px-5 flex items-center justify-center hover:bg-gray-200">
+        <div
+          onClick={() => {
+            console.log("Search text:", searchText);
+          }}
+          className="bg-gray-100 border border-gray-300 border-l-0 rounded-r-full px-5 flex items-center justify-center hover:bg-gray-200"
+        >
           <svg
             className="w-5 h-5 text-gray-600"
             fill="none"

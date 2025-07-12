@@ -1,8 +1,7 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
 import Search from "./Search";
-import SearchResults from "./SearchResults";
-import { useState } from "react";
+import { Link } from "react-router-dom";
 const Head = () => {
   const dispatch = useDispatch();
   const toggleMenuHandler = () => {
@@ -21,11 +20,13 @@ const Head = () => {
             />
           </div>
           <div>
-            <img
+            <Link to="/">
+              <img
               className="h-8 bg-white rounded"
               src="/ytlogo.png"
               alt="logo"
             />
+            </Link>
           </div>
         </div>
         <div className="flex flex-1 justify-center">
