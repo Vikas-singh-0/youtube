@@ -7,7 +7,7 @@ const SideBar = () => {
   }
   return (
     <>
-      <div className="bg-black grid-cols-4 h-[100vh] text-white p-5 border-r border-white-800 shadow-md shadow-white ">
+      <div className="bg-black h-[100vh] text-white p-5 border-r border-white-800 shadow-md shadow-white ">
         <div className="mb-5">
           <ul>
             <li>

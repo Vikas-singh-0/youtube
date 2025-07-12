@@ -1,9 +1,11 @@
+import { Link } from "react-router-dom";
+
 const VideoElement = ({ video }) => {
   console.log(video);
 
   return (
-    <a
-      href="#"
+    <Link
+      to={`watch?v=${video?.id}`}
       className="block"
       style={{ textDecoration: "none" }}
     >
@@ -30,7 +32,7 @@ const VideoElement = ({ video }) => {
           </div>
         </div>
       </div>
-    </a>
+    </Link>
   );
 };
 
